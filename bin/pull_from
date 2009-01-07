@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../lib/rbsync.rb'
+
+if ARGV.size < 1
+  puts "Usage: pull_from <host> [path] [rsync args]"
+  exit
+end
+
+Rbsync.new.pull_from ARGV
