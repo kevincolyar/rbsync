@@ -67,5 +67,5 @@ Installation from RubyGems
   Make sure github is a gems source
   > gem sources -a http://gems.github.com (you only have to do this once) 
 
-  > gem install rbsync
+  > gem install kevincolyar-rbsync
 
