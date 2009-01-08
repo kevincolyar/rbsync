@@ -2,7 +2,7 @@
   rbsync is a ruby wrapper for rsync that simplifies basic pushing and pulling of filesystems.  
   Push and pull actions can be performed from the command line anywhere in the file system.    
 
-== Prerequisets 
+== Prerequisites 
   ruby
   rsync
 
