@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
+
 require File.dirname(__FILE__) + '/../lib/rbsync.rb'
+require 'rubygems'
 
 if ARGV.size < 1
   puts "Usage: push_to <host> [path] [rsync args]"

@@ -1,5 +1,3 @@
-require 'YAML'
-
 class Rbsync
 
   def initialize
@@ -22,7 +20,13 @@ class Rbsync
   def get_paths(argv)
     path = {}
     path[:remote] = argv.shift
-    path[:local] = File.expand_path(argv.shift || '.') 
+
+    if argv[0] and /^\-/ =~ argv[0]
+      path[:local] = File.expand_path('.')
+    else
+      path[:local] = File.expand_path(argv.shift || '.') 
+    end
+
     path[:local] += '/' if File.directory? path[:local]
     path[:remote] = map_path(path[:remote] + ':' +  path[:local])
     return path

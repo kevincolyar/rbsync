@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-require File.dirname(__FILE__) + '/../lib/rbsync.rb'
+
+require 'rubygems'
+require 'rbsync'
 
 if ARGV.size < 1
   puts "Usage: pull_from <host> [path] [rsync args]"
