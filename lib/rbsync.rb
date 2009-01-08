@@ -5,7 +5,9 @@ class Rbsync
   end
 
   def read_config
-    yaml = YAML::load(File.open(File.expand_path('~/.rbsync'))) 
+    yaml = {}
+    file = File.expand_path('~/.rbsync')
+    yaml = YAML::load(File.open(file)) if File.exists? file
     @rsync_args = yaml['rsync'] || ''
     @mappings = yaml['mappings'] || {}
   end

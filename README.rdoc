@@ -1,0 +1,66 @@
+== Description
+  rbsync is a ruby wrapper for rsync that simplifies basic pushing and pulling of filesystems.  Push and pull actions can be performed from the command line anywhere in the file system.    
+
+== Prerequisets 
+  ruby
+  rsync
+
+== Usage
+
+  > pull_from <host> [path] [rsync_options]
+  > push_to   <host> [path] [rsync_options]
+
+  * path defaults to current directory if not supplied.
+  * rsync_options can be any option supported by rsync, such as --dry-run or --delete.  See rsync documentation.
+
+== Examples
+
+  Simple Example:
+  > pull_from server ~/mp3 
+
+  Pulling server:/home/user/mp3/ to /home/user/mp3/
+
+
+  Example with mappings and rsync defined in ~/.rbsync:
+  > push_to server ~/mp3
+
+  Pushing server:/Users/macuser/Music/mp3/ to /home/linuxuser/mp3/ with options --progress -avzut -e ssh --exclude .DS_Store --dry-run
+
+== ~/.rbsync
+  .rbsync is a yaml file that should be place in the users home directory that contains path mappings and default rsync options.
+
+  Sample .rbsync file:
+
+  mappings:
+    /Users/macuser: /home/linuxuser
+    /Users/macuser/Music: /home/linuxuser/music
+
+  rsync: --progress -avzut -e ssh --exclude .DS_Store
+
+
+  The mappings section contains a regex expression and it's corresponding map-to value
+  The rsync section contains the options that are used everything the push_to or pull_from commands are used.
+
+== Download
+ 
+Currently this library is available with git from:
+ 
+  git://github.com/kevincolyar/rbsync.git
+ 
+== Installation
+ 
+=== From Git
+ 
+You can check out the latest source from git:
+ 
+  > git pull git://github.com/kevincolyar/rbsync.git
+ 
+=== From Ruby Gems
+ 
+Installation from RubyGems
+ 
+  Make sure github is a gems source
+  > gem sources -a http://gems.github.com (you only have to do this once) 
+
+  > gem install rbsync
+

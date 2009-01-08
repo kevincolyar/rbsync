@@ -1,0 +1,6 @@
+mappings:
+  /Users/macuser: /home/macuser
+  /home/user/Music: /home/user/music
+
+rsync: --progress -avzut -e ssh --exclude .DS_Store
+
