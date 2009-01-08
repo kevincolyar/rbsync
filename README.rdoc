@@ -1,5 +1,5 @@
 == Description
-  rbsync is a ruby wrapper for rsync that simplifies basic pushing and pulling of filesystems.  
+  rbsync is a ruby wrapper for rsync that simplifies simple pushing and pulling to and from remote filesystems.  
   Push and pull actions can be performed from the command line anywhere in the file system.    
 
 == Prerequisites 
@@ -8,8 +8,8 @@
 
 == Usage
 
-  > pull_from <host> [path] [rsync_options]
-  > push_to   <host> [path] [rsync_options]
+  > pull_from [user@]host [path] [rsync_options]
+  > push_to   [user@]host [path] [rsync_options]
 
   * path defaults to current directory if not supplied.
   * rsync_options can be any option supported by rsync, such as --dry-run or --delete.  See rsync documentation.
@@ -22,7 +22,7 @@
   Pulling server:/home/user/mp3/ to /home/user/mp3/
 
 
-  Example with mappings and rsync defined in ~/.rbsync:
+  Example with mappings and rsync options defined in ~/.rbsync:
   > push_to server ~/mp3
 
   Pushing server:/Users/macuser/Music/mp3/ to /home/linuxuser/mp3/ with options 
